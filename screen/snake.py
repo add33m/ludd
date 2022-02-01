@@ -55,7 +55,8 @@ def move(direction):
 def renderPart(part):
   print(part.x, part.y, part.life)
   renderString = ""
-  color = str(random.randrange(0, 10))*6 # Random greyscale color
+  hex = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","F"]
+  color = "00" + hex[math.floor(part.life/age*16)]*2 + "00" # Random greenscale color
   # Make a square
   for x in range(0, SCALE):
     for y in range(0, SCALE):
