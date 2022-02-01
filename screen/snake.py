@@ -1,10 +1,8 @@
 from ast import Str
 import math
-import os
 import socket as soc
 import time
 import random
-from xml.etree.ElementTree import tostring
 
 HOST = "skarm.ludd.ltu.se"
 PORT = 1337
