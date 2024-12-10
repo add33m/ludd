@@ -10,6 +10,12 @@ PORT = 1337
 socket = soc.socket(soc.AF_INET, soc.SOCK_STREAM)
 socket.connect((HOST, PORT))
 
+# Get screen size
+SCREEN_MAX_X = 1024
+SCREEN_MAX_Y = 576
+data, _, _, _ = socket.recvmsg(100,100)
+print(data)
+
 # Load GIF image
 img = Image.open("./nyancat.gif", "r")
 
@@ -35,9 +41,8 @@ MAX_X, MAX_Y = frames[0].size
 def genYPos():
     return random.randrange(0, SCREEN_MAX_Y - MAX_Y)
 
+
 # Make cat move forward
-SCREEN_MAX_X = 1024
-SCREEN_MAX_Y = 576
 x_pos = 900
 y_pos = genYPos()
 next_y_pos = genYPos()
