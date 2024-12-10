@@ -13,8 +13,12 @@ socket.connect((HOST, PORT))
 # Get screen size
 SCREEN_MAX_X = 1024
 SCREEN_MAX_Y = 576
-data, _, _, _ = socket.recvmsg(100,100)
-print(data)
+socket.sendall("SIZE\n".encode())
+data = socket.recv(1024).decode().split()
+# This should return ['SIZE', 'XSIZE', 'YSIZE']
+if data[0] == "SIZE":
+    SCREEN_MAX_X = int(data[1])
+    SCREEN_MAX_Y = int(data[2])
 
 # Load GIF image
 img = Image.open("./nyancat.gif", "r")
