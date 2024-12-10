@@ -11,7 +11,7 @@ socket = soc.socket(soc.AF_INET, soc.SOCK_STREAM)
 socket.connect((HOST, PORT))
 
 # Load GIF image
-img = Image.open("nyancat.gif", "r")
+img = Image.open("./nyancat.gif", "r")
 
 # Convert GIF image to array of normal PIL images
 frames = []
